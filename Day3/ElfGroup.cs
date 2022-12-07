@@ -1,4 +1,6 @@
-﻿internal class ElfGroup
+﻿using Day3;
+
+internal class ElfGroup
 {
     public ElfGroup(List<RuckSack> ruckSacks)
     {

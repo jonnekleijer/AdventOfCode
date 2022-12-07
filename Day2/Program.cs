@@ -1,5 +1,5 @@
 ﻿List<Round> strategy = new();
-foreach (string line in File.ReadLines("input.txt"))
+foreach (var line in File.ReadLines("input.txt"))
 {
     var choices = line.Split(" ");
     var theirChoice = choices[0].ToChoice();
@@ -9,7 +9,7 @@ foreach (string line in File.ReadLines("input.txt"))
 Console.WriteLine($"Day 1A - {strategy.Sum(r => r.Score)}");
 
 strategy.Clear();
-foreach (string line in File.ReadLines("input.txt"))
+foreach (var line in File.ReadLines("input.txt"))
 {
     var choices = line.Split(" ");
     var theirChoice = choices[0].ToChoice();

@@ -1,4 +1,6 @@
-﻿internal class Round
+﻿using Day2;
+
+internal class Round
 {
     internal Round(Choice theirChoise, Choice myChoice)
     {
