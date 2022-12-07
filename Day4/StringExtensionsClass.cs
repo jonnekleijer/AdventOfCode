@@ -2,7 +2,7 @@
 
 internal static class StringExtensionsClass
 {
-    public static ElfPair ToElfPair(this string s)
+    internal static ElfPair ToElfPair(this string s)
     {
         var elfPairRanges = s.Split(",");
         var first = elfPairRanges[0].ToElf();
@@ -10,7 +10,7 @@ internal static class StringExtensionsClass
         return new ElfPair(first, second);
     }
 
-    public static Elf ToElf(this string s)
+    internal static Elf ToElf(this string s)
     {
         return new Elf(s);
     }

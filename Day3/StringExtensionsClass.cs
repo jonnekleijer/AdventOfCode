@@ -2,7 +2,7 @@
 
 internal static class StringExtensionsClass
 {
-    public static RuckSack ToRuckSack(this string s)
+    internal static RuckSack ToRuckSack(this string s)
     {
         var middle = s.Length / 2;
         var firstRuckSack = s[..middle];
