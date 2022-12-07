@@ -1,7 +1,9 @@
-﻿List<int> food = new();
+﻿using Day1;
+
+List<int> food = new();
 List<Elf> elves = new();
 
-foreach (string line in File.ReadLines("input.txt"))
+foreach (var line in File.ReadLines("input.txt"))
 {
     var i = int.TryParse(line, out int value);
     if (i)

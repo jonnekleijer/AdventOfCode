@@ -1,4 +1,6 @@
-﻿internal static class StringExtensionsClass
+﻿using Day3;
+
+internal static class StringExtensionsClass
 {
     public static RuckSack ToRuckSack(this string s)
     {

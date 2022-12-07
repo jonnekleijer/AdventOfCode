@@ -1,4 +1,6 @@
-﻿class Elf
+﻿namespace Day1;
+
+class Elf
 {
     private readonly List<int> food;
 

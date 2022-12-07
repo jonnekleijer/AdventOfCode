@@ -1,4 +1,6 @@
-﻿internal class RuckSack
+﻿namespace Day3;
+
+internal class RuckSack
 {
     public RuckSack(string firstCompartment, string secondCompartment)
     {

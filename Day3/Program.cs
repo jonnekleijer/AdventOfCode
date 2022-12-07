@@ -1,8 +1,10 @@
-﻿List<ElfGroup> groups = new();
+﻿using Day3;
+
+List<ElfGroup> groups = new();
 List<RuckSack> ruckSacks= new();
 const int ElfGroupSize = 3;
 
-foreach (string line in File.ReadLines("input.txt"))
+foreach (var line in File.ReadLines("input.txt"))
 {
     ruckSacks.Add(line.ToRuckSack());
     if (ruckSacks.Count is ElfGroupSize)

@@ -1,4 +1,6 @@
-﻿internal enum Choice
+﻿namespace Day2;
+
+internal enum Choice
 {
     Rock = 1,
     Paper = 2,

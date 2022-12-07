@@ -1,4 +1,6 @@
-﻿internal static class StringExtensionsClass
+﻿using Day2;
+
+internal static class StringExtensionsClass
 {
     internal static Choice ToChoice(this string s)
     {
