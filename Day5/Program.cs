@@ -1,6 +1,4 @@
 ﻿using Day5;
-using System.Diagnostics.Contracts;
-using System.Reflection.Metadata;
 
 internal class Program
 {
