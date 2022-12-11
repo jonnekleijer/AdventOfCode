@@ -2,16 +2,20 @@
 
 internal class Program
 {
-    private static void Main(string[] args)
+    private static void Main()
     {
-        List<int[]> treeLines = new List<int[]>();
+        List<int[]> treeLines = new();
         foreach (var line in File.ReadLines("input.txt"))
         {
             treeLines.Add(line.ToTreeLine());
         }
 
-        var trees = treeLines.ToMatrix();
-        var forest = new Forest(trees);
-        Console.WriteLine(forest);
+        var forest = new Forest(treeLines.ToArray());
+        var potentialTrees = forest.GetVisibleTrees();
+        var result = potentialTrees.Sum(i => i.Where(j => !j).Count());
+        Console.WriteLine($"Day 8A - {result}");
+
+        result = forest.GetHighestScenicScore();
+        Console.WriteLine($"Day 8A - {result}");
     }
 }
