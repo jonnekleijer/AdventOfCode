@@ -35,7 +35,7 @@ class Tail
                 Move(Direction.U);
                 break;
             case Direction.DR:
-                Move(Direction.L);
+                Move(Direction.R);
                 Move(Direction.D);
                 break;
             case Direction.DL:

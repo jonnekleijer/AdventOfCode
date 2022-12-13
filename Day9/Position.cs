@@ -1,6 +1,6 @@
 ﻿namespace Day9;
 
-class Position
+class Position : IEquatable<Position>
 {
     public Position(int x, int y)
     {
@@ -89,5 +89,18 @@ class Position
         {
             throw new ArgumentException($"Unexpected large distance.");
         }
+    }
+
+    public bool Equals(Position other)
+    {
+        return other.X == X && other.Y == Y;
+    }
+
+    public override bool Equals(object other)
+    {
+        var mod = other as Position;
+        if (mod != null)
+            return Equals(mod);
+        return false;
     }
 }

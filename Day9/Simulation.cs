@@ -2,17 +2,19 @@
 
 class Simulation
 {
-    public Simulation(string fileName)
+    public Simulation(string fileName, int knotCount = 2)
     {
         FileName = fileName;
+        KnotCount = knotCount;
     }
 
     public string FileName { get; }
+    public int KnotCount { get; }
     public ICollection<Position> TailTrace { get; } = new List<Position>();
     public ICollection<HeadAction> HeadActions { get; } = new List<HeadAction>();
 
-    public readonly Head head = new Head();
-    public readonly Tail tail = new Tail();
+    public readonly Head head = new();
+    public readonly Tail tail = new();
 
     public void Run()
     {
@@ -29,19 +31,21 @@ class Simulation
         // Move head and trailing tail.
         foreach (var action in HeadActions)
         {
-            for (int i = 0; i < action.Steps; i++)
+            ApplyAction(action);
+        }
+    }
+
+    private void ApplyAction(HeadAction action)
+    {
+        for (int i = 0; i < action.Steps; i++)
+        {
+            head.Move(action.Direction);
+            var tailMove = head.Position.TailMove(tail.Position);
+            if (tailMove is not null)
             {
-                Console.WriteLine($"{action.Direction} {action.Steps}");
-                head.Move(action.Direction);
-                var tailMove = head.Position.TailMove(tail.Position);
-                if (tailMove is not null)
-                {
-                    tail.Move((Direction)tailMove);
-                    TailTrace.Add(tail.Position);
-                }
+                tail.Move((Direction)tailMove);
+                TailTrace.Add(new Position(tail.Position.X, tail.Position.Y));
             }
         }
-
-        // Calculate result
     }
 }
