@@ -1,8 +1,8 @@
 ﻿namespace Day9;
 
-class Tail
+class Knot
 {
-    public Tail()
+    public Knot()
     {
         Position = new Position(0, 0);
     }

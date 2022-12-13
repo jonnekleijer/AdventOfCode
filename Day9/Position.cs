@@ -11,7 +11,7 @@ class Position : IEquatable<Position>
     public int X { get; set; }
     public int Y { get; set; }
 
-    public Direction? TailMove(Position tail)
+    public Direction? KnotMove(Position tail)
     {
         var dx = X - tail.X;
         var dy = Y - tail.Y;
@@ -48,33 +48,41 @@ class Position : IEquatable<Position>
 
     private static Direction MoveUp(int dx) => dx switch
     {
+        -2 => Direction.UL,
         -1 => Direction.UL,
         0 => Direction.U,
         1 => Direction.UR,
+        2 => Direction.UR,
         _ => throw new ArgumentException("Not supported."),
     };
 
     private static Direction MoveDown(int dx) => dx switch
     {
+        -2 => Direction.DL,
         -1 => Direction.DL,
         0 => Direction.D,
         1 => Direction.DR,
+        2 => Direction.DR,
         _ => throw new ArgumentException("Not supported."),
     };
 
     private static Direction MoveRight(int dy) => dy switch
     {
+        -2 => Direction.DR,
         -1 => Direction.DR,
         0 => Direction.R,
         1 => Direction.UR,
+        2 => Direction.UR,
         _ => throw new ArgumentException("Not supported."),
     };
 
     private static Direction MoveLeft(int dy) => dy switch
     {
+        -2 => Direction.DL,
         -1 => Direction.DL,
         0 => Direction.L,
         1 => Direction.UL,
+        2 => Direction.UL,
         _ => throw new ArgumentException("Not supported."),
     };
 
@@ -102,5 +110,10 @@ class Position : IEquatable<Position>
         if (mod != null)
             return Equals(mod);
         return false;
+    }
+
+    public override string ToString()
+    {
+        return $"Position({X}, {Y})";
     }
 }

@@ -10,4 +10,9 @@ class HeadAction
 
     public Direction Direction { get; }
     public int Steps { get; }
+
+    public override string ToString()
+    {
+        return $"{Direction} {Steps}";
+    }
 }
