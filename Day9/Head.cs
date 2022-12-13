@@ -1,4 +1,6 @@
-﻿namespace Day9;
+﻿using System;
+
+namespace Day9;
 
 class Head
 {
@@ -9,27 +11,24 @@ class Head
 
     public Position Position { get; set; }
 
-    public void ApplyAction(HeadAction action)
+    public void Move(Direction direction)
     {
-        for (int i = 0; i < action.Steps; i++)
+        switch (direction)
         {
-            switch (action.Direction)
-            {
-                case Direction.U:
-                    Position.Y++;
-                    break;
-                case Direction.R:
-                    Position.X++;
-                    break;
-                case Direction.D:
-                    Position.Y--;
-                    break;
-                case Direction.L:
-                    Position.X--;
-                    break;
-                default:
-                    throw new NotImplementedException($"Unknown direction {action.Direction}");
-            }
+            case Direction.U:
+                Position.Y++;
+                break;
+            case Direction.R:
+                Position.X++;
+                break;
+            case Direction.D:
+                Position.Y--;
+                break;
+            case Direction.L:
+                Position.X--;
+                break;
+            default:
+                throw new NotImplementedException($"Unknown direction {direction}");
         }
     }
 }
